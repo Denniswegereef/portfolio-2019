@@ -1,68 +1,54 @@
 <template>
-  <section class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        portfolio-2019
-      </h1>
-      <h2 class="subtitle">
-        My exceptional Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
+  <div>
+    <section class="splash">
+      <splashTitle/>
+    </section>
+
+    <main class="work-container">
+      <div v-for="(item, index) in $options.workData" v-bind:key="index">
+        <workItem
+          :title="item.title"
+          :image="item.image"
+          :description="item.description"
+          :index="index"
+        />
       </div>
-    </div>
-  </section>
+    </main>
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import workData from '~/static/work.json'
+import workItem from '~/components/work/item.vue'
+
+import splashTitle from '~/components/splash/title.vue'
 
 export default {
+  workData,
   components: {
-    Logo
+    workItem,
+    splashTitle
   }
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
+<style lang="scss" styled>
+.splash {
+  height: 100vh;
+  width: 100%;
+  background-color: #1c1c1c;
+}
+
+.work-container {
+  background-color: #1c1c1c;
+  width: 100%;
+  padding: 20rem 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  text-align: center;
+  min-height: 80rem;
 }
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+h2 {
+  color: blue;
 }
 </style>
