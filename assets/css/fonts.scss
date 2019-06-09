@@ -1,25 +1,2 @@
-@font-face {
-  font-family: 'Noto-Sans';
-  src: url('~assets/fonts/Noto_Sans/NotoSans-Bold.ttf') format('ttf');
-  font-weight: 600;
-  font-style: bold;
-}
-
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url(../fonts/Poppins/Poppins-SemiBold.ttf) format('ttf');
-//   font-weight: 400;
-// }
-
-// @font-face {
-//   font-family: 'Lato';
-//   src: url(../fonts/Lato/Lato-Regular.ttf) format('ttf');
-//   font-weight: 200;
-// }
-
-h1,
-h2 {
-  font-family: 'Noto-Sans';
-  color: red;
-  font-weight: bold;
-}
+$font-headings: 'Noto Sans', sans-serif;
+$font-body: 'Poppins', sans-serif;

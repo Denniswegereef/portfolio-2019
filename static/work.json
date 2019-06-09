@@ -1,6 +1,13 @@
 [
   {
+    "id": "work-one",
     "title": "work one",
+    "description": "here comes a description",
+    "image": "images/test.png"
+  },
+  {
+    "id": "work-two",
+    "title": "work two",
     "description": "here comes a description",
     "image": "images/test.png"
   }
