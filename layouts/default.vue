@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Socials/>
+    <div class="about__socials">
+      <Socials/>
+    </div>
+
+    <nuxt-link to="about" class="about__link">About me</nuxt-link>
     <nuxt/>
   </div>
 </template>
@@ -8,6 +12,7 @@
 
 <script>
 import Socials from '~/components/layout/Socials.vue'
+import { TimelineMax } from 'gsap'
 
 export default {
   components: {
@@ -17,6 +22,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~assets/css/config';
+
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -34,5 +41,26 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+body {
+  background-color: $color-grey-dark;
+}
+
+.about {
+  &__socials {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+  }
+  &__link {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    color: $color-white;
+    &:hover {
+      color: $color-primary;
+    }
+  }
 }
 </style>

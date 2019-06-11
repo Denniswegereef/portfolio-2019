@@ -1,6 +1,10 @@
 <template>
-  <section class="container">
-    <h1>About</h1>
+  <section class="about">
+    <h2 class="about__title">Some straight facts about me</h2>
+
+    <div class="about__image"></div>
+
+    <p class="about__content">Here comes the content of me what i'm wanna tell</p>
   </section>
 </template>
 
@@ -8,5 +12,17 @@
 export default {}
 </script>
 
-<style>
+<style lang="scss" scoped>
+.about {
+  display: grid;
+  &__title {
+  }
+  &__image {
+    height: 400px;
+    width: 250px;
+    background-color: red;
+  }
+  &__content {
+  }
+}
 </style>

@@ -2,16 +2,18 @@ h1,
 h2,
 h3,
 h4 {
-  color: $color-grey-dark;
+  text-transform: uppercase;
+  color: $color-white;
   font-family: $font-headings;
 }
 h1 {
-  font-size: 2.6rem;
+  font-size: 5rem;
   margin-bottom: $margin-m;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 4rem;
+  line-height: 4rem;
   margin-bottom: $margin-m;
 }
 
@@ -30,14 +32,6 @@ p {
   font-family: $font-body;
   line-height: 1.4;
   margin-bottom: $margin-m;
-}
-
-a {
-  color: $color-primary;
-  transition: color 0.3s;
-  &:hover {
-    color: darken($color-primary, 20%);
-  }
 }
 
 .bold {

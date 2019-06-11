@@ -1,13 +1,16 @@
 <template>
   <div class="work-single" ref="workItem">
-    <div class="work-single__image">
-      <img :src="image" v-bind:alt="image">
+    <div class="work-single__holder">
+      <img class="work-single__image" :src="image" v-bind:alt="image">
     </div>
 
     <div class="work-single__content">
-      <span class="work-single__content-index">0{{ index }}</span>
-      <h2>{{ title }}</h2>
-      <p>{{ description }}</p>
+      <span class="work-single__index">0{{ index }}</span>
+      <h2 class="work-single__title">{{ title }}</h2>
+      <div class="work-single__description-holder">
+        <p class="work-single__description-view">View more</p>
+        <p class="work-single__description-text">{{ description }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -15,36 +18,45 @@
 <script>
 export default {
   props: ['title', 'image', 'description', 'index'],
-  // mounted() {
-  //   this.$refs.singleWorkItem.addEventListener('scroll', e => {
-  //     console.log(e)
-  //   })
-  // }
+  data() {
+    return {
+      animationFirst: false
+    }
+  },
+  computed: {
+    middleOfView() {
+      return window.innerHeight
+    }
+  },
   mounted() {
     // Activate scroll
     this.onScroll()
+
+    // Check once if item is here
+    this.checkPosition()
   },
   methods: {
     onScroll() {
       // Get middle point
-      let middleOfView = window.innerHeight
-
       window.onscroll = () => {
-        var rect = this.$refs.workItem.getBoundingClientRect()
-        if (
-          rect.bottom < 0 ||
-          rect.right < 0 ||
-          rect.left > window.innerWidth ||
-          rect.top > window.innerHeight
-        ) {
-          // console.log('El in not in view')
-        } else {
-          //    console.log('In view')
-        }
-
-        if (Math.floor(rect.top / 2) < middleOfView / 2) {
-          console.log('Middle hitted')
-        }
+        this.checkPosition()
+      }
+    },
+    checkPosition() {
+      var rect = this.$refs.workItem.getBoundingClientRect()
+      if (
+        rect.bottom < 0 ||
+        rect.right < 0 ||
+        rect.left > window.innerWidth ||
+        (rect.top > window.innerHeight && this.animationFirst)
+      ) {
+      } else {
+        this.animationFirst = true
+        TweenMax.to(this.$refs.workItem, 0.5, {
+          y: '100px',
+          delay: 1
+        })
+        this.$refs.workItem
       }
     }
   }
@@ -52,47 +64,103 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/css/config';
+
 .work-single {
   display: flex;
-  margin: 0 auto;
-  margin-bottom: 10rem;
-  height: 20rem;
-  z-index: 9;
-  &::last-of-type {
-    margin-bottom: 0;
+  align-items: center;
+  margin-bottom: 15rem;
+  position: relative;
+
+  &:hover {
+    .work-single__content {
+      transform: translateX(-2rem);
+    }
+
+    .work-single__title {
+      -webkit-text-stroke: 2px $color-white;
+      color: rgba($color-primary, 0);
+    }
+
+    .work-single__holder {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .work-single__image {
+      filter: hue-rotate(0deg);
+      transform: scale(1.1);
+    }
+
+    .work-single__description {
+      &-holder {
+      }
+      &-text {
+        transform: translateY(200%);
+      }
+      &-view {
+        transform: translateY(200%);
+        transform: translateY(0%);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__holder {
+    width: 30rem;
+    height: 25rem;
+    transition: clip-path 0.3s ease-in-out;
+    clip-path: polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%);
   }
   &__image {
-    width: 20rem;
-    height: 100%;
-    background-color: #a4f6fe;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s, filter 0.7s;
+    filter: hue-rotate(90deg);
   }
+
   &__content {
-    transform: translateX(-2rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 20rem;
-    height: 100%;
-    padding-left: 1rem;
+    transition: transform 0.2s ease-in-out;
+    transform: translateX(-10rem);
+  }
+
+  &__title {
+    margin-bottom: 0;
+    letter-spacing: 20;
+    -webkit-text-stroke: 2px $color-white;
+    color: rgba($color-primary, 0);
+  }
+
+  &__description {
+    color: $color-white;
     position: relative;
-
-    &-index {
+    overflow: hidden;
+    &-holder {
+      width: 100%;
+      height: 2rem;
+      overflow: hidden;
+    }
+    &-text {
+      transition: transform 0.4s;
+      color: $color-white;
+      margin: 0;
+    }
+    &-view {
+      margin: 0;
+      color: $color-white;
       position: absolute;
-      right: 0;
-      top: 0;
-      color: #fff;
+      margin-left: 1rem;
+      transform: translateY(-100%);
+      transition: transform 0.2s;
+      opacity: 0;
+      text-transform: uppercase;
+      font-weight: bold;
     }
-
-    h2 {
-      line-height: 5rem;
-      font-size: 8rem;
-      margin-bottom: 3rem;
-      color: #fff;
-    }
-
-    p {
-      color: #fff;
-    }
+  }
+  &__index {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $color-white;
   }
 }
 </style>

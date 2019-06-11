@@ -3,12 +3,32 @@
     "id": "work-one",
     "title": "work one",
     "description": "here comes a description",
-    "image": "images/test.png"
+    "image": "images/test.png",
+    "github": "https://wwwwwww",
+    "link": "http:?/www.gogole.nl"
   },
   {
     "id": "work-two",
     "title": "work two",
     "description": "here comes a description",
-    "image": "images/test.png"
+    "image": "images/test.png",
+    "github": "https://wwwwwww",
+    "link": "http:?/www.gogole.nl"
+  },
+  {
+    "id": "work-one",
+    "title": "work one",
+    "description": "here comes a description",
+    "image": "images/test.png",
+    "github": "https://wwwwwww",
+    "link": "http:?/www.gogole.nl"
+  },
+  {
+    "id": "work-one",
+    "title": "work one",
+    "description": "here comes a description",
+    "image": "images/test.png",
+    "github": "https://wwwwwww",
+    "link": "http:?/www.gogole.nl"
   }
 ]

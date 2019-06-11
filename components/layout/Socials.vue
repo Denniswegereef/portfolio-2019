@@ -1,15 +1,52 @@
 <template>
-  <ul id="socials">
-    <li>Github</li>
-    <li>Instagram</li>
-    <li>Facebook</li>
+  <ul class="socials">
+    <a
+      class="socials__item"
+      v-for="(item, index) in socials"
+      v-bind:key="index"
+      href="item.link"
+      target="_blank"
+    >{{ item.name}}</a>
   </ul>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      socials: [
+        {
+          name: 'Instagram',
+          link: 'httpL//www.asldjf'
+        },
+        {
+          name: 'Github',
+          link: 'httpL//www.asldjf'
+        },
+        {
+          name: 'Facebook',
+          link: 'httpL//www.asldjf'
+        }
+      ]
+    }
+  }
+}
+</script>
+
 <style lang="scss" styled>
-#socials {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+@import '~assets/css/config';
+
+.socials {
+  display: flex;
+  color: $color-white;
+  list-style-type: none;
+  padding-left: 0;
+  &__item {
+    color: $color-white;
+    margin-left: 1rem;
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
 }
 </style>
