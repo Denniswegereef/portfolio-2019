@@ -1,28 +1,36 @@
 <template>
-  <section class="about">
-    <h2 class="about__title">Some straight facts about me</h2>
-
-    <div class="about__image"></div>
-
-    <p class="about__content">Here comes the content of me what i'm wanna tell</p>
-  </section>
+  <main class="about">
+    <div class="about__content">
+      <h1>About myself</h1>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    </div>
+    <img class="about__image" src="~/static/images/myself.png" alt />
+  </main>
 </template>
 
 <script>
-export default {}
+export default {
+  layout: 'About'
+}
 </script>
 
 <style lang="scss" scoped>
 .about {
-  display: grid;
-  &__title {
+  max-width: 60rem;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 10rem;
+  padding: 0 2rem;
+
+  &__content {
+    z-index: 9;
   }
   &__image {
-    height: 400px;
-    width: 250px;
-    background-color: red;
-  }
-  &__content {
+    z-index: -1;
+    max-width: 20rem;
+    position: fixed;
+    top: 20vh;
+    right: 20vh;
   }
 }
 </style>

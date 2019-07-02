@@ -2,19 +2,27 @@ h1,
 h2,
 h3,
 h4 {
-  text-transform: uppercase;
   color: $color-white;
   font-family: $font-headings;
 }
 h1 {
-  font-size: 5rem;
+  font-size: 1.8rem;
+  line-height: 3rem;
   margin-bottom: $margin-m;
+
+  @media screen and (min-width: 40rem) {
+    font-size: 2.5rem;
+  }
 }
 
 h2 {
-  font-size: 4rem;
-  line-height: 4rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
   margin-bottom: $margin-m;
+
+  @media screen and (min-width: 40rem) {
+    font-size: 2rem;
+  }
 }
 
 h3 {
@@ -28,7 +36,7 @@ h4 {
 }
 
 p {
-  color: $color-grey-dark;
+  color: $color-white;
   font-family: $font-body;
   line-height: 1.4;
   margin-bottom: $margin-m;

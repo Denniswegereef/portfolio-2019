@@ -1,10 +1,13 @@
 <template>
-  <div class="splash">
-    <div class="splash__content">
-      <h1 class="splash__content-title">Hello I',m</h1>
-      <div class="splash__image"></div>
+  <section class="splash">
+    <div class="splash__container">
+      <h1 class="splash__title-first">
+        Hi, Dennis Wegereef
+        <br>a front-end based in Amsterdam
+      </h1>
+      <h2 class="splash__title-second">Looking for an internship</h2>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -12,35 +15,26 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/css/config';
+
 .splash {
   height: 100vh;
   width: 100%;
-
-  &__image {
-    height: 500px;
-    width: 250px;
-    background-color: blue;
-    position: absolute;
-    z-index: 2;
+  &__container {
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: inherit;
+    width: inherit;
   }
-
-  &__content {
-    bottom: 0;
-    background-color: grey;
-    &-title {
-      color: red;
-      &:nth-of-type(1) {
-        color: blue;
-        z-index: 1;
-      }
-      &:nth-of-type(2) {
-        color: yellow;
-        z-index: 3;
-      }
-      &:nth-of-type(3) {
-        color: green;
-        z-index: 3;
-      }
+  &__title {
+    &-first {
+      text-align: center;
+    }
+    &-second {
+      margin: 0;
     }
   }
 }

@@ -1,33 +1,41 @@
 [
   {
     "id": "work-one",
-    "title": "work one",
+    "title": "Dit is een iets langere tit3el",
     "description": "here comes a description",
-    "image": "images/test.png",
+    "image": "one.png",
     "github": "https://wwwwwww",
     "link": "http:?/www.gogole.nl"
   },
   {
     "id": "work-two",
-    "title": "work two",
+    "title": "HELE GEKKE TITEL GOOI ADB",
     "description": "here comes a description",
-    "image": "images/test.png",
+    "image": "two.png",
+    "github": "https://wwwwwww",
+    "link": "http:?/www.gogole.nl"
+  },
+  {
+    "id": "work-",
+    "title": "work three",
+    "description": "here comes a description",
+    "image": "three.png",
     "github": "https://wwwwwww",
     "link": "http:?/www.gogole.nl"
   },
   {
     "id": "work-one",
-    "title": "work one",
+    "title": "work four",
     "description": "here comes a description",
-    "image": "images/test.png",
+    "image": "four.png",
     "github": "https://wwwwwww",
     "link": "http:?/www.gogole.nl"
   },
   {
     "id": "work-one",
-    "title": "work one",
+    "title": "work five",
     "description": "here comes a description",
-    "image": "images/test.png",
+    "image": "five.png",
     "github": "https://wwwwwww",
     "link": "http:?/www.gogole.nl"
   }

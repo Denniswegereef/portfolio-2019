@@ -1,8 +1,7 @@
 <template>
   <div>
-    <AboutSwitch go="About"/>
-
-    <nuxt/>
+    <AboutSwitch />
+    <nuxt />
   </div>
 </template>
 
