@@ -18,12 +18,12 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap'
+          'https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap'
       },
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css?family=Poppins:300,400,600,700&display=swap'
+          'https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap'
       }
     ]
   },

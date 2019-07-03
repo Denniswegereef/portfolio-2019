@@ -1,12 +1,12 @@
 <template>
-  <nuxt-link :to="correctPath" class="about__link">{{go}}</nuxt-link>
+  <nuxt-link :to="correctPath" class="about__link">Go {{go}}</nuxt-link>
 </template>
 
 <script>
 export default {
   props: {
     go: {
-      default: 'Go back',
+      default: 'back',
       type: String
     }
   },
@@ -28,7 +28,6 @@ export default {
     position: fixed;
     top: 1rem;
     right: 1rem;
-    color: $color-white;
     &:hover {
       color: $color-primary;
     }

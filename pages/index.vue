@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Splash/>
+    <Splash />
 
     <main class="work-container">
       <article v-for="(item, index) in $options.workData" v-bind:key="index">
@@ -9,11 +9,12 @@
           :image="item.image"
           :description="item.description"
           :index="index"
+          :id="item.id"
         />
       </article>
     </main>
 
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
