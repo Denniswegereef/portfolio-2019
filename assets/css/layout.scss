@@ -18,16 +18,21 @@ html {
 }
 
 body {
-  background-color: $color-grey-dark;
+  background-color: $color-white;
 }
 
 .page-enter-active,
-.page-leave-active {
+.page-leave-active,
+.layout-enter-active,
+.layout-leave-active {
   transition: opacity 0.5s, transform 0.5s;
   transform: translateY(0);
 }
+
 .page-enter,
-.page-leave-active {
+.page-leave-active,
+.layout-enter,
+.layout-leave-active {
   opacity: 0;
   transform: translateY(10rem);
 }

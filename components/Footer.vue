@@ -14,6 +14,11 @@
 .footer {
   width: 100%;
   min-height: 20rem;
-  background-color: $color-grey-dark;
+  background-color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-black;
+  flex-direction: column;
 }
 </style>

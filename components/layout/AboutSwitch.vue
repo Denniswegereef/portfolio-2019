@@ -1,5 +1,8 @@
 <template>
-  <nuxt-link :to="correctPath" class="about__link">Go {{go}}</nuxt-link>
+  <div>
+    <nuxt-link to="/">Home</nuxt-link>
+    <nuxt-link :to="correctPath" class="about__link">Go {{go}}</nuxt-link>
+  </div>
 </template>
 
 <script>

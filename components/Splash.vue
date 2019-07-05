@@ -1,14 +1,18 @@
 <template>
-  <section class="splash">
-    <div class="splash__container" ref="container" :class="onTop ? '' :  'active'">
-      <h1 class="splash__title-first">
-        Dennis Wegereef
-        <br />a front-end developer
-        <br />based in Amsterdam
-      </h1>
-      <h3 class="splash__title-second">Looking for an internship</h3>
-    </div>
-  </section>
+  <div>
+    <div class="fullscreen" ref="fullscreen"></div>
+
+    <section class="splash">
+      <div class="splash__container" ref="container" :class="onTop ? '' :  'active'">
+        <h1 class="splash__title-first">
+          Dennis Wegereef
+          <br />a front-end developer
+          <br />based in Amsterdam
+        </h1>
+        <h3 class="splash__title-second">Looking for an internship</h3>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -20,23 +24,28 @@ export default {
   },
 
   mounted() {
+    this.fullScreen()
     // Activate scroll
     this.onScroll()
     this.onMouseMove(window)
     this.checkPositionPage()
   },
   methods: {
+    fullScreen() {
+      // TweenMax.to(this.$refs.fullScreen, 0.5, {
+      //   opaciity: 0
+      //   //onComplete: this.$refs.fullScreen.$el.remove()
+      // })
+    },
     onMouseMove(window) {
       TweenMax.set(this.$refs.container, { transformStyle: 'preserve-3d' })
 
-      window.addEventListener('mousemove', e => {
-        this.tilt(e.pageX, e.pageY)
-      })
+      window.addEventListener('mousemove', this.tilt)
     },
-    tilt(cx, cy) {
+    tilt(e) {
       const body = document.body.getBoundingClientRect()
-      const sxPos = ((cx / body.width) * 100 - 50) * 2
-      const syPos = ((cy / body.height) * 100 - 50) * 2
+      const sxPos = ((e.pageX / body.width) * 100 - 50) * 2
+      const syPos = ((e.pageY / body.height) * 100 - 50) * 2
 
       TweenMax.to(this.$refs.container, 2, {
         rotationY: -0.04 * sxPos,
@@ -47,14 +56,18 @@ export default {
       })
     },
     onScroll() {
-      // Get middle point
-      window.onscroll = () => {
-        this.checkPositionPage()
-      }
+      window.onscroll = this.checkPositionPage
     },
     checkPositionPage() {
-      window.scrollY === 0 ? (this.onTop = true) : (this.onTop = false)
+      if (window.scrollY === 0) {
+        this.onTop = true
+      } else {
+        this.onTop = false
+      }
     }
+  },
+  beforeDestroy() {
+    window.removeEventListener('mousemove', this.tilt)
   }
 }
 </script>
@@ -81,19 +94,21 @@ export default {
       text-transform: uppercase;
       transition: opacity 0.3s, transform 0.2s ease-out;
       text-align: center;
-      color: #fff;
+      color: $color-primary;
     }
     &-second {
       font-family: $font-body;
       letter-spacing: 2px;
       transition: color 0.3, opacity 0.2s;
       margin: 0;
+      color: $color-black;
     }
   }
   .active {
     .splash__title {
       &-first {
-        opacity: 0.02;
+        opacity: 0.2;
+        color: grey;
         transform: translateY(2rem);
       }
       &-second {
@@ -103,4 +118,14 @@ export default {
     }
   }
 }
+
+// .fullscreen {
+//   height: 100vh;
+//   width: 100%;
+//   position: fixed;
+//   background-color: red;
+//   top: 0;
+//   left: 0;
+//   z-index: 999;
+// }
 </style>

@@ -1,5 +1,11 @@
 <template>
-  <nuxt-link :to="'work/' + id" class="work-single" ref="workItem" :class="oddEven">
+  <nuxt-link
+    to="/"
+    @click.native="goPage(`work/${id}`)"
+    class="work-single"
+    ref="workItem"
+    :class="oddEven"
+  >
     <div class="work-single__holder" ref="workHolder">
       <img class="work-single__image" :src="`images/${image}`" />
     </div>
@@ -36,7 +42,8 @@ export default {
   data() {
     return {
       observer: null,
-      show: false
+      show: false,
+      clicked: false
     }
   },
   mounted() {
@@ -48,12 +55,9 @@ export default {
         }
       },
       {
-        threshold: 0.8
+        threshold: 0
       }
     )
-
-    console.log(this.$refs.workContent.children)
-
     this.observer.observe(this.$refs.workItem.$el)
   },
   computed: {
@@ -62,6 +66,25 @@ export default {
     }
   },
   methods: {
+    goPage(param) {
+      if (!this.clicked) {
+        TweenMax.to('.work-single__holder', 0.6, {
+          opacity: 0,
+          y: -20,
+          onComplete: () => this.pushRouter(param)
+        })
+
+        TweenMax.to('.work-single__content', 0.5, {
+          delay: 0.1,
+          opacity: 0,
+          y: -60
+        })
+      }
+      this.clicked = true
+    },
+    pushRouter(param) {
+      this.$router.push(param)
+    },
     inView() {
       this.show = true
       if (this.show) {
@@ -69,17 +92,39 @@ export default {
       }
     },
     showItem() {
-      TweenMax.to(this.$refs.workHolder, 0.8, {
-        delay: 0.3,
-        opacity: 1,
-        clipPath: '0% 0%, 100% 0%, 100% 100%, 0% 100%'
+      const tl = new TimelineMax()
+
+      tl.set(this.$refs.workContent, {
+        opacity: 0,
+        y: 40
       })
-      TweenMax.staggerFrom(
-        this.$refs.workContent.children,
-        0.5,
-        { opacity: 1, y: 0 },
-        0.05
-      )
+        .to(this.$refs.workHolder, 0.5, {
+          delay: 0.3,
+          opacity: 1,
+          clipPath: '20% 0%, 80% 0%, 80% 100%, 20% 100%'
+        })
+        .to(this.$refs.workHolder, 0.5, {
+          delay: 0.1,
+          clipPath: '0% 0%, 100% 0%, 100% 100%, 0% 100%'
+        })
+        .to(
+          this.$refs.workContent,
+          1,
+          {
+            y: 0,
+            ease: Power3.easeOut
+          },
+          '-=0.4'
+        )
+        .to(
+          this.$refs.workContent,
+          0.6,
+          {
+            opacity: 1,
+            ease: Power2.easeNone
+          },
+          '-=0.8'
+        )
     }
   }
 }
@@ -107,11 +152,16 @@ $titlePadding: 1rem;
     .work-single__image {
       transform: scale(1.1);
     }
+
+    .work-single__title {
+    }
   }
 
   &__title {
     width: 100%;
     margin-bottom: 0.2rem;
+    color: $color-black;
+
     @media screen and (min-width: 40rem) {
       margin-bottom: 1rem;
       width: auto;
@@ -126,6 +176,7 @@ $titlePadding: 1rem;
     }
 
     p {
+      color: $color-black;
       transition: transform 0.3s;
     }
   }
@@ -134,7 +185,7 @@ $titlePadding: 1rem;
     width: 100%;
     overflow: hidden;
     opacity: 0;
-    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    clip-path: polygon(20% 100%, 80% 100%, 80% 100%, 20% 100%);
   }
 
   &__image {
