@@ -2,30 +2,31 @@ h1,
 h2,
 h3,
 h4 {
-  color: $color-black;
+  color: $color-white;
   font-family: $font-headings;
 }
 h1 {
-  font-size: 1.8rem;
-  line-height: 3rem;
+  font-size: 3rem;
+  line-height: 1rem;
   letter-spacing: 2px;
   margin-bottom: $margin-m;
-  text-transform: uppercase;
 
   @media screen and (min-width: 40rem) {
-    font-size: 2.5rem;
+    font-size: 8rem;
+    line-height: 4.5rem;
   }
 }
 
 h2 {
-  font-size: 1.6rem;
-  line-height: 2.5rem;
+  font-size: 2rem;
+  line-height: 1.2em;
   margin-bottom: $margin-m;
-  text-transform: uppercase;
+  text-align: left;
 
   @media screen and (min-width: 40rem) {
-    font-size: 3.2rem;
-    line-height: 3rem;
+    font-size: 5rem;
+    line-height: 4rem;
+    text-align: center;
   }
 }
 

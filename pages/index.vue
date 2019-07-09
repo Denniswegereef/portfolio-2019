@@ -31,8 +31,7 @@ export default {
     workItem,
     Splash,
     Footer
-  },
-  layout: 'Default'
+  }
 }
 </script>
 

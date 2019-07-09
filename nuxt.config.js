@@ -24,6 +24,10 @@ export default {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Elsie&display=swap'
       }
     ]
   },

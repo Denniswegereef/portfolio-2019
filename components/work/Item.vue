@@ -160,7 +160,7 @@ $titlePadding: 1rem;
   &__title {
     width: 100%;
     margin-bottom: 0.2rem;
-    color: $color-black;
+    color: $color-white;
 
     @media screen and (min-width: 40rem) {
       margin-bottom: 1rem;
@@ -176,7 +176,7 @@ $titlePadding: 1rem;
     }
 
     p {
-      color: $color-black;
+      color: $color-white;
       transition: transform 0.3s;
     }
   }

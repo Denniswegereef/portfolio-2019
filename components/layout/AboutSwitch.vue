@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <nuxt-link to="/">Home</nuxt-link>
-    <nuxt-link :to="correctPath" class="about__link">Go {{go}}</nuxt-link>
+  <div class="layout-header">
+    <nuxt-link :to="aboutLink" class="layout-header__links" ref="links">{{ this.aboutText }}</nuxt-link>
   </div>
 </template>
 
@@ -13,12 +12,34 @@ export default {
       type: String
     }
   },
-  computed: {
-    correctPath() {
-      let go = this.$props.go
-      return go.toLowerCase() === 'about'
-        ? '/' + go.charAt(0).toUpperCase() + go.slice(1)
-        : '/'
+  data() {
+    return {
+      aboutText: '',
+      aboutLink: ''
+    }
+  },
+  mounted() {
+    TweenMax.from(this.$refs.links.$el, 1.2, {
+      opacity: 0,
+      y: -20,
+      delay: 1.5
+    })
+    this.changeName(this.$route)
+  },
+  watch: {
+    $route(to, from) {
+      this.changeName(to)
+    }
+  },
+  methods: {
+    changeName(router) {
+      if (router.path === '/about') {
+        this.aboutText = 'Go back'
+        this.aboutLink = '/'
+      } else {
+        this.aboutText = 'About Dennis'
+        this.aboutLink = '/about'
+      }
     }
   }
 }
@@ -26,14 +47,13 @@ export default {
 <style lang="scss" scoped>
 @import '~assets/css/config';
 
-.about {
-  &__link {
+.layout-header {
+  &__links {
+    color: #fff;
+    font-size: 1.3rem;
     position: fixed;
-    top: 1rem;
-    right: 1rem;
-    &:hover {
-      color: $color-primary;
-    }
+    top: 1.8rem;
+    right: 1.8rem;
   }
 }
 </style>

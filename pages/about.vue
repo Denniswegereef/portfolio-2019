@@ -10,9 +10,6 @@
 </template>
 
 <script>
-export default {
-  layout: 'About'
-}
 </script>
 
 <style lang="scss" scoped>

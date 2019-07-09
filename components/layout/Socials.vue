@@ -2,6 +2,7 @@
   <ul class="socials">
     <a
       class="socials__item"
+      ref="items"
       v-for="(item, index) in socials"
       v-bind:key="index"
       href="item.link"
@@ -29,6 +30,16 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    TweenMax.staggerFrom(
+      this.$refs.items,
+      1.2,
+      { x: '-20', opacity: 0, delay: 1.5 },
+      0.4
+    )
+
+    console.log(this.$refs.items)
   }
 }
 </script>
@@ -37,16 +48,15 @@ export default {
 @import '~assets/css/config';
 
 .socials {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1rem;
   display: flex;
-  color: $color-white;
+  flex-direction: column;
   list-style-type: none;
-  padding-left: 0;
+  padding: 0;
   &__item {
     color: $color-white;
-    margin-left: 1rem;
-    &:first-of-type {
-      margin-left: 0;
-    }
   }
 }
 </style>
