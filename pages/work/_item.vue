@@ -7,54 +7,42 @@
         </div>
       </header>
 
-      <div class="work__meta">
+      <div class="work__meta" ref="meta">
         <ul>
-          <li>
-            <span>Date</span>
-            {{ item.date }}
+          <li v-for="(meta, index) in item.meta" v-bind:key="index">
+            <span class="work__meta-handle">{{ capitlize(index) }}</span>
+            {{ meta }}
           </li>
-          <li>
-            <span>Client</span>
-            {{ item.client }}
-          </li>
-          <li>
-            <span>Role</span>
-            {{ item.role }}
-          </li>
-          <li>
-            <a :href="item.link">
-              <span>Online link</span>
-            </a>
-          </li>
-          <li>
-            <a :href="item.github">
-              <span>Repository</span>
-            </a>
+
+          <li v-for="(meta, index) in item.links" v-bind:key="index">
+            <a class="work__meta-handle" :href="meta" target="_blank">{{ capitlize(index) }}</a>
           </li>
         </ul>
       </div>
 
-      <div class="work__content">
-        <h2>{{ this.item.title }}</h2>
-        <p>{{ item.description }}</p>
+      <div class="work__content" ref="content">
+        <h2 class="work__content-title">{{ this.item.title }}</h2>
+        <p class="work__content-text">{{ item.description }}</p>
       </div>
     </div>
 
     <div class="work__back">
       <nuxt-link to="/">Go back to the home</nuxt-link>
     </div>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
 <script>
 import workData from '~/static/work.json'
 import Footer from '~/components/Footer.vue'
+import Header from '~/components/header.vue'
 
 export default {
   workData,
   components: {
-    Footer
+    Footer,
+    Header
   },
   head() {
     return {
@@ -74,14 +62,14 @@ export default {
   mounted() {
     this.onMouseMove(window)
     console.log(this.$refs.workHolder)
-    // TweenMax.to(this.$refs.workHolder.$el, 0.8, {
-    //   delay: 0.3,
-    //   opacity: 1,
-    //   clipPath: '0% 0%, 100% 0%, 100% 100%, 0% 100%'
-    // })
     this.showItem()
   },
   methods: {
+    capitlize(metaTag) {
+      return (
+        metaTag.charAt(0).toUpperCase() + metaTag.slice(1).replace('-', ' ')
+      )
+    },
     onMouseMove(window) {
       TweenMax.set(this.$refs.workHeader, { transformStyle: 'preserve-3d' })
 
@@ -101,10 +89,22 @@ export default {
       })
     },
     showItem() {
-      TweenMax.to('.work__header-holder', 1.2, {
+      TweenMax.to('.work__header-holder', 0.8, {
         delay: 0.5,
         opacity: 1,
         clipPath: '0% 0%, 100% 0%, 100% 100%, 0% 100%'
+      })
+
+      TweenMax.from(this.$refs.content, 0.5, {
+        delay: 1.2,
+        opacity: 0,
+        y: 20
+      })
+
+      TweenMax.from(this.$refs.meta, 0.5, {
+        delay: 1.7,
+        opacity: 0,
+        x: -20
       })
     }
   },
@@ -169,21 +169,35 @@ export default {
     }
   }
 
+  &__content {
+    &-text {
+      color: $color-white;
+      text-align: left;
+    }
+  }
+
   &__meta {
     color: $color-white;
     grid-area: meta;
     margin-top: 0.5rem;
+    position: relative;
 
-    ul {
-      padding: 0;
-      list-style-type: none;
+    li {
+      margin-bottom: 0.2rem;
     }
 
-    span {
+    &-handle {
       font-weight: bold;
+      font-size: 1rem;
+      letter-spacing: 0;
     }
+
+    a {
+      text-decoration: underline;
+    }
+
     @media screen and (min-width: 40rem) {
-      margin-top: 2rem;
+      margin-top: 4rem;
     }
   }
 
@@ -195,7 +209,7 @@ export default {
   }
 
   &__back {
-    height: 20rem;
+    height: 10rem;
     width: 100%;
     display: flex;
     align-items: center;

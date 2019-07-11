@@ -1,2 +1,10 @@
-$font-headings: 'Elsie', cursive;
+@font-face {
+  font-family: 'Galano Grotesqua';
+  src: url('~assets/fonts/galano_grotesque_bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+$font-intro: 'Elsie', cursive;
+$font-headings: 'Galano Grotesqua', sans-serif;
 $font-body: 'Source Sans Pro', sans-serif;

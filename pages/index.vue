@@ -14,7 +14,7 @@
       </article>
     </main>
 
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 

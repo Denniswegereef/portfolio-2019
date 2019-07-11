@@ -175,6 +175,7 @@ export default {
         font-size: 10vw;
         line-height: 6vw;
         z-index: -4;
+        font-family: $font-headings;
       }
     }
     &-first {

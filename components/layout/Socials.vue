@@ -1,5 +1,5 @@
 <template>
-  <ul class="socials">
+  <ul class="socials" v-if="show">
     <a
       class="socials__item"
       ref="items"
@@ -15,6 +15,7 @@
 export default {
   data() {
     return {
+      show: true,
       socials: [
         {
           name: 'Instagram',
@@ -32,14 +33,21 @@ export default {
     }
   },
   mounted() {
-    TweenMax.staggerFrom(
-      this.$refs.items,
-      1.2,
-      { x: '-20', opacity: 0, delay: 1.5 },
-      0.4
-    )
-
-    console.log(this.$refs.items)
+    this.hideShow(this.$router)
+  },
+  watch: {
+    $route(to, from) {
+      this.hideShow(to)
+    }
+  },
+  methods: {
+    hideShow(router) {
+      if (router.path === '/about') {
+        this.show = false
+      } else {
+        this.show = true
+      }
+    }
   }
 }
 </script>
@@ -55,8 +63,14 @@ export default {
   flex-direction: column;
   list-style-type: none;
   padding: 0;
+  display: none;
+
   &__item {
     color: $color-white;
+  }
+
+  @media screen and (min-width: 40rem) {
+    display: flex;
   }
 }
 </style>

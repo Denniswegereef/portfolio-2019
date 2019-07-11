@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    to="/"
+    to="#"
     @click.native="goPage(`work/${id}`)"
     class="work-single"
     ref="workItem"
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import Header from '~/components/header.vue'
+
 export default {
   props: {
     title: {
@@ -78,6 +80,11 @@ export default {
           delay: 0.1,
           opacity: 0,
           y: -60
+        })
+
+        TweenMax.to('.splash', 0.3, {
+          delay: 0.2,
+          opacity: 0
         })
       }
       this.clicked = true
@@ -140,20 +147,19 @@ $titlePadding: 1rem;
   display: flex;
   align-self: flex-end;
   flex-direction: column;
-  align-items: center;
+  align-items: baseline;
   cursor: pointer;
 
   @media screen and (min-width: 40rem) {
     flex-direction: row;
+    align-items: center;
     max-width: 50rem;
     margin-bottom: 10rem;
   }
   &:hover {
     .work-single__image {
       transform: scale(1.1);
-    }
-
-    .work-single__title {
+      filter: grayscale(0%);
     }
   }
 
@@ -161,6 +167,7 @@ $titlePadding: 1rem;
     width: 100%;
     margin-bottom: 0.2rem;
     color: $color-white;
+    transition: transform 0.3s;
 
     @media screen and (min-width: 40rem) {
       margin-bottom: 1rem;
@@ -189,8 +196,9 @@ $titlePadding: 1rem;
   }
 
   &__image {
-    transition: transform 1s;
+    transition: transform 1s, filter 0.5s;
     width: 100%;
+    filter: grayscale(50%);
   }
 
   &__odd {

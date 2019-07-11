@@ -19,14 +19,13 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  line-height: 1.2em;
+  line-height: 1em;
   margin-bottom: $margin-m;
   text-align: left;
 
   @media screen and (min-width: 40rem) {
-    font-size: 5rem;
+    font-size: 4rem;
     line-height: 4rem;
-    text-align: center;
   }
 }
 
@@ -41,11 +40,11 @@ h4 {
 }
 
 p {
-  color: $color-black;
+  color: $color-white;
   font-family: $font-body;
-  line-height: 1.6;
+  line-height: 1.4;
   margin-bottom: $margin-m;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.6px;
 }
 
 .bold {

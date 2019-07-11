@@ -21,6 +21,11 @@ body {
   background-color: $color-black;
 }
 
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
 .page-enter-active,
 .page-leave-active,
 .layout-enter-active,

@@ -54,6 +54,13 @@ export default {
     position: fixed;
     top: 1.8rem;
     right: 1.8rem;
+    z-index: 999;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  @media screen and (min-width: 40rem) {
+    display: flex;
   }
 }
 </style>
