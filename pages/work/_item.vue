@@ -22,7 +22,7 @@
 
       <div class="work__content" ref="content">
         <h2 class="work__content-title">{{ this.item.title }}</h2>
-        <p class="work__content-text">{{ item.description }}</p>
+        <p class="work__content-text" v-html="item.description"></p>
       </div>
     </div>
 

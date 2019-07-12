@@ -6,7 +6,10 @@
       <Header>
         <h2>About me</h2>
       </Header>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+      <p>My name is Dennis Wegereef 23-year-old dutch guy, and I am currently living in Amsterdam. I'm a student at the University of Applied Sciences Amsterdam, studying Communication Multimedia Design. I finished my third year and moving up to my graduation year. The study is focused on concepts, user experience, and creating digital products while keeping the end-user in mind.</p>
+      <p>So a little about me I'm an avid sneaker collector trying to get the most exclusive Nike Air Max 1s. My passion doesn't stop there, with two friends. We have a webshop called Outsole.nl where we sell more collectible sneakers all around the world, where we are the market leader in selling collectible Nike Air Max 1s. With more than 300.000 unique visitors in 2018. Where I mostly helped to create the webshop and content for all the social channels.</p>
+      <p>At the moment I've just finished the minor Web Development, also at the University of Applied Sciences. During this minor, we have been working with multiple and varying front-end aspects. The minor for the past half-year covers many topics like accessibility on the web, real-time connections, performance, progressive enhancement, web servers with Express, and a-lot of CSS and 'vanilla' JavaScript.</p>
+      <p>In my graduation year, I have to do an internship for 20 weeks starting from the 1st of September 2019 till the 1st of February 2020. Therefore I'm looking for a front-end internship focused on enhancing the web and building excellent products. And would like to talk more about the possibilities and my learning goals towards the internship.</p>
     </div>
 
     <div class="about__socials" ref="socials">
