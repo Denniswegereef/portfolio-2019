@@ -4,6 +4,7 @@
     <AboutSwitch />
     <nuxt />
     <Socials />
+    <div id="cursor"></div>
   </div>
 </template>
 

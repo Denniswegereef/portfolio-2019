@@ -7,7 +7,7 @@
       "The front-end has been build with Nuxt.js, a Vue.js framework for server-side rendering. On the backend, there is a typescript environment with GraphQL connected to a MongoDB database.  My role project was creating the flow of the application, visualizing it, and building the front-end of the app.  Also, I was in charge of making sure our online server was running two parallel applications together than can communicate with each other — all managed by continuous integration with Codeship.",
       "Recharge is one of the 21 projects nominated for the Golden Dot Awards 2019, the best student work of the study Communication Multimedia Design at the Amsterdam University of Applied Sciences."
     ],
-    "image": "one.png",
+    "image": "recharge.jpg",
     "meta": {
       "date": "June 2019",
       "client": "IDOlaad"
@@ -24,7 +24,7 @@
       "For the minor Web Development at the Amsterdam University of Applied Sciences, I've created this interactive article trying to expand my CSS knowledge and stretching the limits of it.  This article glitches halfway through, making it impossible to read. For creating awareness that printable items disappear slowly, this article is only readable when you print it. It creates a unique experience for the user, with exciting interactions hidden everywhere on clicks and hovers.",
       "Finding the limits of CSS and stretching how far I could go was my main goal in this project. With heavy use of all different kinds of filter attributes and keyframe animations to make it more alive. They are disabled on smaller screen sizes to avoid crashing the browser and heating your phone. So it is preferable to watch it on a bigger screen to fully experience it."
     ],
-    "image": "two.png",
+    "image": "glitching-article.png",
     "meta": {
       "date": "March 2019"
     },
@@ -40,7 +40,7 @@
       "An interactive story made for the web where your answers have consequences for how the story progresses.  There is currently a scenario running where you got arrested by the police, and you have to answer and react to their actions. All the decisions could have a different ending. With as main goal to teach the user what the police in the Netherland can and can't do and what your rights by law are. During the story, sometimes you get a small insight into your answer to teach the user slowly why certain actions are off aren't by law.",
       "This project was build in a group with three other students. I've created the concept and was in charge of building the front-end. The tech stack is a Nuxt.js framework for server-side rendering. Also, I've added continuous integration, with Codeship to ship out a new production build to test quickly among our users. We came back and polished it up. We wrote a better scenario and tested it with the police and many users to create a realistic scenario, and published it live on the web as a stable application."
     ],
-    "image": "three.png",
+    "image": "mayisayno.gif",
     "meta": {
       "date": "February 2019",
       "client": "Controle Alt Delete"
@@ -57,13 +57,13 @@
       "A multi-user interactive game where you can show off your skills how fast you can guess a track that is playing. It has been build with the Spotify API and currently is playing all the songs of the top 2000 from radio 2.",
       "The product is played in real-time; it shows the opportunity of building an isomorphic app without any framework needed. It was a more significant challenge than I expected, rendering every required piece of HTML on the server and sending it to the right user with WebSockets can get very messy quickly. Only the necessary parts for the user get updated, an efficient way of making a reactive web app. But as the project expands, you quickly understand why framework exists and why they are essential when you are dealing with a lot of data that needs to be updated promptly. The project is built with Express, combined with a Firestore database and all native JavaScript on the client. "
     ],
-    "image": "four.png",
+    "image": "guessthetrack.jpg",
     "meta": {
       "date": "April 2019"
     },
     "links": {
       "github": "https://github.com/Denniswegereef/real-time-web-1819",
-      "online-link": "https://guess.denniswegereef.nl/"
+      "online-link": "http://guessthetrack.denniswegereef.nl/"
     }
   },
   {
@@ -73,7 +73,7 @@
       "Last year I did my internship at Matise in Amsterdam. I operated for ten weeks as a front-end developer there. I've worked on different projects for clients such as Schweppers and Basic-fit in teams. But for the most part, I've worked on their agency website. I learned a lot at Matise from creating concepts to building a production-ready webpage and maintaining products, and I'm grateful that I was part of the team and the knowledge they provided me.",
       "During helping to build their agency website, I was in charge of creating the animations and structuring the project. This website has been build with Nuxt.js, a Vue.js framework for server-side rendering. In this project, I focused mostly on the hero screen with the slider and the page-transition animations. Finding the right way for building it inside Nuxt.js in combination with GSAP was the toughest challenge in this project. But after all, I've learned a lot creating and managing animations and trying to create a smooth as possible animations."
     ],
-    "image": "five.png",
+    "image": "matise.jpg",
     "meta": {
       "date": "Late august"
     },

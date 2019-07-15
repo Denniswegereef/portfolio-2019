@@ -8,15 +8,12 @@
     />
 
     <div class="about__content" ref="content">
-      <h2>About me</h2>
+      <h2>About Dennis</h2>
       <p>My name is Dennis Wegereef 23-year-old dutch guy, and I am currently living in Amsterdam. I'm a student at the University of Applied Sciences Amsterdam, studying Communication Multimedia Design. I finished my third year and moving up to my graduation year. The study is focusing on concepts, user experience, and creating digital products while keeping the end-user in mind.</p>
       <p>So a little about me I'm an avid sneaker collector trying to get the most exclusive Nike Air Max 1s. My passion doesn't stop there, with two friends. We have a webshop called Outsole.nl, where we sell more collectible sneakers all around the world. We are the market leader in selling collectible Nike Air Max 1, with more than 300.000 unique visitors in 2018. I mostly helped to create and build the webshop in Wordpress in combination with Woocommerce. Also, I helped to produce content for their social channels, including graphic work and photography.</p>
       <p>At the moment I've just finished the minor Web Development at the University of Applied Sciences. During this minor, we have been working with multiple and varying front-end aspects. The minor for the past half-year covers many topics like accessibility on the web, real-time connections, performance, progressive enhancement, web servers with Express, and a-lot of CSS and 'vanilla' JavaScript.</p>
+      <p>My experience on the web exists out of multiple aspects ranging from front-end to back-end languages. I know HTML5, CSS, and native Javascript. But more specific, I have experience with frameworks such as Vue.JS and React and also with libraries like D3 and GSAP. Besides these languages I have an excellent understanding of Node.JS as an extension on building server-side products with Express. I use preprocessor scripting languages such as Sass and Less on daily basis, and build automatisation systems with Gulp and Webpack.</p>
       <p>In my graduation year, I have to do an internship for 20 weeks starting from the 1st of September 2019 till the 1st of February 2020. Therefore I'm looking for a front-end internship focused on enhancing the web and building excellent products. And I would like to talk more about the possibilities and my learning goals towards the internship.</p><
-    </div>
-
-    <div class="about__socials" ref="socials">
-      <p>here comes the socials</p>
     </div>
   </main>
 </template>
@@ -30,8 +27,6 @@ export default {
   },
   mounted() {
     this.showItem()
-
-    console.dir(this.$refs.content.children)
   },
   methods: {
     showItem() {
@@ -45,16 +40,6 @@ export default {
         },
         0.2
       )
-
-      // TweenMax.from(this.$refs.content, 0.8, {
-
-      // })
-
-      TweenMax.from(this.$refs.socials, 0.8, {
-        delay: 1.3,
-        opacity: 0,
-        y: 20
-      })
 
       TweenMax.from(this.$refs.image, 0.5, {
         delay: 0.9,

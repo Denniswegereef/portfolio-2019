@@ -52,15 +52,21 @@ export default {
     color: #fff;
     font-size: 1.3rem;
     position: fixed;
-    top: 1.8rem;
-    right: 1.8rem;
+    top: 1rem;
+    right: 1rem;
+    transition: color 0.3s;
     z-index: 999;
+    background-color: $color-primary;
+    padding: 0.7rem;
     &:hover {
       text-decoration: underline;
     }
   }
   @media screen and (min-width: 40rem) {
     display: flex;
+    top: 1.8rem;
+    background-color: blue;
+    right: 1.8rem;
   }
 }
 </style>

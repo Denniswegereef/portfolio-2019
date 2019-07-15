@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "nuxt start --port 6666",
     "generate": "nuxt generate",
     "ngrok": "node_modules/.bin/ngrok http 3000"
   },
@@ -21,7 +21,7 @@
   "devDependencies": {
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "ngrok": "^3.2.1",
+    "ngrok": "^3.2.2",
     "node-sass": "^4.12.0",
     "nodemon": "^1.18.9",
     "prettier": "^1.18.2",

@@ -5,7 +5,7 @@
       ref="items"
       v-for="(item, index) in socials"
       v-bind:key="index"
-      href="item.link"
+      :href="item.link"
       target="_blank"
     >{{ item.name}}</a>
   </ul>
@@ -42,11 +42,11 @@ export default {
   },
   methods: {
     hideShow(router) {
-      if (router.path === '/about') {
-        this.show = false
-      } else {
-        this.show = true
-      }
+      // if (router.path === '/about') {
+      //   this.show = false
+      // } else {
+      //   this.show = true
+      // }
     }
   }
 }
@@ -67,6 +67,7 @@ export default {
 
   &__item {
     color: $color-white;
+    margin-bottom: 0.2rem;
   }
 
   @media screen and (min-width: 40rem) {
