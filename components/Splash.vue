@@ -3,7 +3,7 @@
     <!-- <div class="fullscreen" ref="fullscreen"></div> -->
     <section class="splash-holder"></section>
 
-    <section class="splash">
+    <section class="splash" ref="splash">
       <div class="splash__container" ref="container" :class="onTop ? '' :  'active'">
         <h1 class="splash__title-first" ref="first">Dennis</h1>
         <div class="splash__title-image-holder" ref="image">
@@ -12,7 +12,7 @@
         <h1 class="splash__title-second" ref="second">Wegereef</h1>
         <h2 class="splash__title-extra" ref="extra">
           Front end developer
-          <br />Looking for a intership
+          <br />Looking for an intership
         </h2>
       </div>
     </section>
@@ -29,16 +29,25 @@ export default {
   },
 
   mounted() {
-    console.log(window)
-    this.fullScreen()
-    // Activate scroll
-    this.onScroll()
-    this.onMouseMove(window)
-    this.checkPositionPage()
-
-    this.introAnimation()
+    if ((window.domLoadEventFired = true)) {
+      this.activateSplash()
+      return
+    }
+    window.addEventListener('load', () => {
+      this.activateSplash()
+    })
   },
   methods: {
+    activateSplash() {
+      this.$refs.splash.style.opacity = 1
+
+      // Activate scroll
+      this.onScroll()
+      this.onMouseMove(window)
+      this.checkPositionPage()
+
+      this.introAnimation()
+    },
     introAnimation() {
       TweenMax.to(this.$refs.image, 0.8, {
         clipPath: '0% 0%, 100% 0%, 100% 100%, 0% 100%',
@@ -66,15 +75,8 @@ export default {
         }
       })
     },
-    fullScreen() {
-      // TweenMax.to(this.$refs.fullScreen, 0.5, {
-      //   opaciity: 0
-      //   //onComplete: this.$refs.fullScreen.$el.remove()
-      // })
-    },
     onMouseMove(window) {
       TweenMax.set(this.$refs.container, { transformStyle: 'preserve-3d' })
-
       window.addEventListener('mousemove', this.tilt)
     },
     tilt(e) {
@@ -115,7 +117,7 @@ export default {
       })
     },
     onScroll() {
-      window.onscroll = this.checkPositionPage
+      window.addEventListener('scroll', this.checkPositionPage)
     },
     checkPositionPage() {
       if (window.scrollY === 0) {
@@ -141,6 +143,7 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('mousemove', this.tilt)
+    window.removeEventListener('scroll', this.checkPositionPage)
   }
 }
 </script>
@@ -159,6 +162,8 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s;
 
   &__container {
     display: flex;
@@ -196,7 +201,12 @@ export default {
       align-content: center;
       justify-content: center;
       box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-      clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+      @supports (clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)) {
+        clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+      }
+      @media screen and (max-width: 705px) {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
 
       &__image {
         height: 100%;

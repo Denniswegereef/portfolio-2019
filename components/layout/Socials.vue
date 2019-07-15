@@ -19,15 +19,15 @@ export default {
       socials: [
         {
           name: 'Instagram',
-          link: 'httpL//www.asldjf'
+          link: 'https://www.instagram.com/denniswegereef/'
         },
         {
           name: 'Github',
-          link: 'httpL//www.asldjf'
+          link: 'https://github.com/Denniswegereef/'
         },
         {
-          name: 'Facebook',
-          link: 'httpL//www.asldjf'
+          name: 'Linkedin',
+          link: 'https://www.linkedin.com/in/dennis-wegereef-84bb9ba7/'
         }
       ]
     }

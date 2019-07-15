@@ -13,8 +13,6 @@
         />
       </article>
     </main>
-
-    <!-- <Footer /> -->
   </div>
 </template>
 

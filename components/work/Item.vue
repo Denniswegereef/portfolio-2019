@@ -7,7 +7,7 @@
     :class="oddEven"
   >
     <div class="work-single__holder" ref="workHolder">
-      <img class="work-single__image" :src="`images/${image}`" />
+      <img class="work-single__image" :src="`images/${image}`" :alt="image" />
     </div>
 
     <div class="work-single__content" ref="workContent">
@@ -49,18 +49,12 @@ export default {
     }
   },
   mounted() {
-    this.observer = new IntersectionObserver(
-      (entry, observer) => {
-        if (entry[0].intersectionRatio > 0 && !this.show) {
-          this.show = true
-          this.showItem()
-        }
-      },
-      {
-        threshold: 0
-      }
-    )
-    this.observer.observe(this.$refs.workItem.$el)
+    if ((window.domLoadEventFired = true)) {
+      this.addObservers()
+    }
+    window.addEventListener('load', () => {
+      this.addObservers()
+    })
   },
   computed: {
     oddEven() {
@@ -68,6 +62,20 @@ export default {
     }
   },
   methods: {
+    addObservers() {
+      this.observer = new IntersectionObserver(
+        (entry, observer) => {
+          if (entry[0].intersectionRatio > 0 && !this.show) {
+            this.show = true
+            this.showItem()
+          }
+        },
+        {
+          threshold: 0
+        }
+      )
+      this.observer.observe(this.$refs.workItem.$el)
+    },
     goPage(param) {
       if (!this.clicked) {
         TweenMax.to('.work-single__holder', 0.6, {
@@ -185,6 +193,8 @@ $titlePadding: 1rem;
     p {
       color: $color-white;
       transition: transform 0.3s;
+      overflow: hidden;
+      position: relative;
     }
   }
 
@@ -192,7 +202,12 @@ $titlePadding: 1rem;
     width: 100%;
     overflow: hidden;
     opacity: 0;
-    clip-path: polygon(20% 100%, 80% 100%, 80% 100%, 20% 100%);
+    @supports (clip-path: polygon(20% 100%, 80% 100%, 80% 100%, 20% 100%)) {
+      clip-path: polygon(20% 100%, 80% 100%, 80% 100%, 20% 100%);
+    }
+    @media screen and (max-width: 705px) {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
   }
 
   &__image {
